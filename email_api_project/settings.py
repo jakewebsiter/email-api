@@ -32,7 +32,7 @@ SECRET_KEY = "django-insecure-j#)cwe&*_t5t*p56rbjoit8shqhie-m71j8u09nw1)i4-k9%0f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["email-api-many.onrender.com"]
 
 
 # Application definition
