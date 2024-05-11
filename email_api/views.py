@@ -18,6 +18,8 @@ def send_emails(request, num_emails):
         "hfuvehdih",
         "nerd",
         "failing life",
+        "jalapenos on top",
+        "carrots are good with everything",
     ]
     # Email configuration
     sender_email = "jakeharris30@outlook.com"
