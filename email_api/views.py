@@ -41,7 +41,7 @@ def send_emails(request, num_emails):
 
     try:
         # Login to your Outlook account
-        server.login(sender_email, password)
+        # server.login(sender_email, password)
 
         # Send the emails
         for i in range(num_emails):
