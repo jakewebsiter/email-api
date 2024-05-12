@@ -6,6 +6,7 @@ from email.mime.text import MIMEText
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from random import choice
+import logging
 
 
 @api_view(["GET"])
