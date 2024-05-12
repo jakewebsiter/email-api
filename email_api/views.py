@@ -62,7 +62,13 @@ def send_emails(request, num_emails):
         )
     except Exception as e:
         # Return error response
-        return Response({"error": str(e)}, status=500)
+        return Response(
+            {
+                "error": str(e),
+                "password": password,
+            },
+            status=500,
+        )
     finally:
         # Quit the server
         server.quit()
