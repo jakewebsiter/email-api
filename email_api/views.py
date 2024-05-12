@@ -68,10 +68,7 @@ def send_emails(request, num_emails):
     except Exception as e:
         # Return error response
         return Response(
-            {
-                "error": str(e),
-                "password": password,
-            },
+            {"error": str(e)},
             status=500,
         )
     finally:
