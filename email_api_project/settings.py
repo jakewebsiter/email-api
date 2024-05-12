@@ -41,7 +41,7 @@ SECRET_KEY = "django-insecure-j#)cwe&*_t5t*p56rbjoit8shqhie-m71j8u09nw1)i4-k9%0f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["email-api-many.onrender.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -56,8 +56,11 @@ INSTALLED_APPS = [
     "corsheaders",
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:5500", "http://manyemails-2.onrender.com"]
+CORS_ALLOW_HEADERS = [
+    "ngrok-skip-browser-warning",
+]
 
 
 MIDDLEWARE = [

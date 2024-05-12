@@ -7,7 +7,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from random import choice
 import logging
-from django.core.mail import send_mail
+from django.core.mail import send_mail  #
+from django.http import HttpResponse
 
 
 @api_view(["GET"])
@@ -27,11 +28,11 @@ def send_emails(request, num_emails):
     sender_email = "jakeharris30@outlook.com"
     receiver_email = "effiehemail@gmail.com"
     password = os.getenv("OUTLOOK_PASSWORD")
+    res = {}
 
     if not password:
-        return Response(
-            {"error": "OUTLOOK_PASSWORD environment variable not set."}, status=500
-        )
+        res["error"] = "OUTLOOK_PASSWORD environment variable not set."
+        return Response({res}, status=500)
 
     # Create message container
 
@@ -71,7 +72,10 @@ def send_emails(request, num_emails):
 
         # Return success response
         return Response(
-            {"message": f"{num_emails} emails sent to {receiver_email} successfully."},
+            {
+                "message": f"{num_emails} emails sent to {receiver_email} successfully.",
+                "Access-Control-Allow-Origin": "*",
+            },
             status=200,
         )
     except smtplib.SMTPAuthenticationError as e:
