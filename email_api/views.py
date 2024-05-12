@@ -60,6 +60,10 @@ def send_emails(request, num_emails):
             {"message": f"{num_emails} emails sent to {receiver_email} successfully."},
             status=200,
         )
+    except smtplib.SMTPAuthenticationError as e:
+        # Log the error message
+        logging.error(f"SMTP authentication failed: {e}")
+
     except Exception as e:
         # Return error response
         return Response(
