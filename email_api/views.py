@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from random import choice
 import logging
+from django.core.mail import send_mail
 
 
 @api_view(["GET"])
@@ -44,17 +45,29 @@ def send_emails(request, num_emails):
 
         # Send the emails
         for i in range(num_emails):
-            message = MIMEMultipart()
-            message["From"] = sender_email
-            message["To"] = receiver_email
-            message["Subject"] = choice(
+            # message = MIMEMultipart()
+            # message["From"] = sender_email
+            # message["To"] = receiver_email
+            # message["Subject"] = choice(
+            #     ["hi", "hello", "WWAAAASSSSSUUUUPPPP", "greetings cat lover"]
+            # )
+
+            subject = choice(
                 ["hi", "hello", "WWAAAASSSSSUUUUPPPP", "greetings cat lover"]
             )
 
             # Email body
             body = choice(options)
-            message.attach(MIMEText(body, "plain"))
-            server.sendmail(sender_email, receiver_email, message.as_string())
+            # message.attach(MIMEText(body, "plain"))
+            # server.sendmail(sender_email, receiver_email, message.as_string())
+
+            send_mail(
+                subject,
+                body,
+                "jakeharris30@outlook.com",
+                ["effiehemail@gmail.com"],
+                fail_silently=False,
+            )
 
         # Return success response
         return Response(

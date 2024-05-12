@@ -16,8 +16,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Email configuration
-OUTLOOK_PASSWORD = os.getenv("OUTLOOK_PASSWORD")
+# Email Configurations
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.office365.com"  # Outlook SMTP server
+EMAIL_PORT = 587  # Outlook SMTP port
+EMAIL_USE_TLS = True  # Enable TLS encryption
+
+# OAuth2 Authentication
+EMAIL_HOST_USER = "jakeharris30@outlook.com"  # Your Outlook email address
+EMAIL_HOST_PASSWORD = os.getenv("OUTLOOK_PASSWORD")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +39,7 @@ SECRET_KEY = "django-insecure-j#)cwe&*_t5t*p56rbjoit8shqhie-m71j8u09nw1)i4-k9%0f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["email-api-many.onrender.com"]
+ALLOWED_HOSTS = ["email-api-many.onrender.com", "127.0.0.1"]
 
 
 # Application definition
