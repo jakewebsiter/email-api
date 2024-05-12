@@ -25,6 +25,7 @@ EMAIL_USE_TLS = True  # Enable TLS encryption
 # OAuth2 Authentication
 EMAIL_HOST_USER = "jakeharris30@outlook.com"  # Your Outlook email address#
 EMAIL_HOST_PASSWORD = os.getenv("OUTLOOK_PASSWORD")
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 print(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
