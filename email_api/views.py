@@ -81,12 +81,14 @@ def send_emails(request, num_emails):
     except smtplib.SMTPAuthenticationError as e:
         # Log the error message
         logging.error(f"SMTP authentication failed: {e}")
-        return Response({"error": str(e)}, status=500)
+        return Response(
+            {"error": str(e), "Access-Control-Allow-Origin": "*"}, status=500
+        )
 
     except Exception as e:
         # Return error response
         return Response(
-            {"error": str(e)},
+            {"error": str(e), "Access-Control-Allow-Origin": "*"},
             status=500,
         )
     finally:
