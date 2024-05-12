@@ -34,7 +34,7 @@ def send_emails(request, num_emails):
     # Create message container
 
     # Connect to Outlook's SMTP server
-    server = smtplib.SMTP("smtp.outlook.com", 587)
+    server = smtplib.SMTP("smtp.office365.com", 587)
     server.starttls()
 
     try:
