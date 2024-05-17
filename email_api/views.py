@@ -23,6 +23,7 @@ def send_emails(request, num_emails):
         "failing life",
         "jalapenos on top",
         "carrots are good with everything",
+        "stop signing me up to stuff unless u want more of this",
     ]
     # Email configuration
     sender_email = "jakeharris30@outlook.com"
